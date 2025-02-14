@@ -405,7 +405,7 @@ extern void freeL(const char *msg, void *x);
             MDNS_CORE_LOG_RDATA_WITH_BUFFER(CATEGORY, LEVEL, RR_PTR, _rdataBuffer, _rdataBufferLen, FORMAT,         \
                 ##__VA_ARGS__);                                                                                     \
         }                                                                                                           \
-        mDNSPlatformMemFree(_rdataBufferHeap);                                                                      \
+        if (_rdataBufferHeap) mDNSPlatformMemFree(_rdataBufferHeap);                                                \
     }                                                                                                               \
     while(0)
 
