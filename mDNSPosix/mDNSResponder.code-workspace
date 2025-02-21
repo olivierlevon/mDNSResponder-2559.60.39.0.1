@@ -1,0 +1,45 @@
+{
+    "folders": [
+        {
+            "name": "Posix platform code",
+            "path": "."
+        },
+        {
+            "path": "../Clients"
+        },
+        {
+            "path": "../mDNSCore"
+        },
+        {
+            "path": "../mDNSMacOSX"
+        },
+        {
+            "path": "../mDNSShared"
+        },
+        {
+            "path": "../DSO"
+        },
+        {
+            "path": "../ServiceRegistration"
+        },
+        {
+            // Docs and release notes
+            "name": "Documentation",
+            "path": "../Documents"
+          }
+    ],
+    "settings": {
+        "search.exclude": {
+          "**/.vscode": true,
+          "**/build/": true,
+          "**/objects/": true
+        },
+        "files.exclude": {
+            "build": true,
+            "objects": true
+        },
+    },
+    "extensions": {
+        "recommendations": ["ms-vscode.cpptools", "ms-azuretools.vscode-docker", "ms-vscode-remote.vscode-remote-extensionpack"]
+      },
+}

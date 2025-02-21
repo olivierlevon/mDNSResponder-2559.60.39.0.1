@@ -1,0 +1,58 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../mDNSCore/**",
+                "${workspaceFolder}/../mDNSShared/**",
+                "${workspaceFolder}/../mDNSShared/utilities/**",                
+                "${workspaceFolder}/../DSO/**",
+                "${workspaceFolder}/../ServiceRegistration/**",                
+                "${workspaceFolder}/../mDNSMacOSX/**"
+            ],
+            "defines": [
+                "MDNS_DEBUGMSGS=2",
+                "DEBUG=1",
+                "MDNS_MALLOC_DEBUGGING=3",
+                "POSIX_BUILD",
+                "_GNU_SOURCE",
+                "HAVE_IPV6=1",
+                "mDNSResponderVersion=mDNSResponder-2559.60.39.0.1",
+                "DNS_SD_VERSION_NUMBER_OVERRIDE=2559060039",
+                "MDNSRESPONDER_SUPPORTS_COMMON_DNS_PUSH=0",
+                "MDNSRESPONDER_SUPPORTS_COMMON_DNS_LLQ=0",
+                "MDNSRESPONDER_SUPPORTS_COMMON_SPS_CLIENT=0",
+                "MDNSRESPONDER_SUPPORTS_COMMON_LOCAL_DNS_RESOLVER_DISCOVERY=0",
+                "NOT_HAVE_SA_LEN",
+                "USES_NETLINK",
+                "HAVE_LINUX",
+                "USES_INOTIFY=1",
+                "TARGET_OS_LINUX",
+                "POSIX_HAS_TLS",
+                "PID_FILE=\"/var/run/mdnsd.pid\"",
+                "MDNS_UDS_SERVERPATH=\"/var/run/mdnsd\""
+            ],
+            "compilerPath": "/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-gcc-arm64",
+            "compilerArgs": [
+                "-g",
+                "-fwrapv",
+                "-W",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-I${workspaceFolder}/../mDNSCore/**",
+                "-I${workspaceFolder}/../../mDNSShared/**",
+                "-I${workspaceFolder}/../../mDNSShared/utilities/**",                
+                "-I${workspaceFolder}/../../DSO/**",
+                "-I${workspaceFolder}/../../ServiceRegistration/**",
+                "-I${workspaceFolder}/../../mDNSMacOSX/**"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}

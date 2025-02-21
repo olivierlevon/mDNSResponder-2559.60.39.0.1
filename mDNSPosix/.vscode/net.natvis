@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
+<Type Name="in_addr">
+ <DisplayString >{(int)S_un.S_un_b.s_b2}.{(int)S_un.S_un_b.s_b2}.{(int)S_un.S_un_b.s_b2}.{(int)S_un.S_un_b.s_b2}</DisplayString>
+</Type>
+
+<Type Name="in6_addr">
+ <DisplayString >{(unsigned short)(u.Byte[0] &lt;&lt; 8 | u.Byte[1]),Hb}:
+{(unsigned short)(u.Byte[2] &lt;&lt; 8 | u.Byte[3]),Hb}:
+{(unsigned short)(u.Byte[4] &lt;&lt; 8 | u.Byte[5]),Hb}:
+{(unsigned short)(u.Byte[6] &lt;&lt; 8 | u.Byte[7]),Hb}:
+{(unsigned short)(u.Byte[8] &lt;&lt; 8 | u.Byte[9]),Hb}:
+{(unsigned short)(u.Byte[10] &lt;&lt; 8 | u.Byte[11]),Hb}:
+{(unsigned short)(u.Byte[12] &lt;&lt; 8 | u.Byte[13]),Hb}:
+{(unsigned short)(u.Byte[14] &lt;&lt; 8 | u.Byte[15]),Hb}
+ </DisplayString>
+</Type>
+
+<Type Name="sockaddr_in">
+ <DisplayString >{(int)sin_addr.S_un.S_un_b.s_b2}.{(int)sin_addr.S_un.S_un_b.s_b2}.{(int)sin_addr.S_un.S_un_b.s_b2}.{(int)sin_addr.S_un.S_un_b.s_b2}:{(unsigned short)((unsigned short)sin_port &lt;&lt; 8 | (unsigned short)sin_port)}</DisplayString>
+</Type>
+
+<Type Name="sockaddr_in6">
+ <DisplayString >{sin6_flowinfo}
+ [{(unsigned short)(sin6_addr.u.Byte[0] &lt;&lt; 8 | sin6_addr.u.Byte[1]),Hb}:
+{(unsigned short)(sin6_addr.u.Byte[2] &lt;&lt; 8 | sin6_addr.u.Byte[3]),Hb}:
+{(unsigned short)(sin6_addr.u.Byte[4] &lt;&lt; 8 | sin6_addr.u.Byte[5]),Hb}:
+{(unsigned short)(sin6_addr.u.Byte[6] &lt;&lt; 8 | sin6_addr.u.Byte[7]),Hb}:
+{(unsigned short)(sin6_addr.u.Byte[8] &lt;&lt; 8 | sin6_addr.u.Byte[9]),Hb}:
+{(unsigned short)(sin6_addr.u.Byte[10] &lt;&lt; 8 | sin6_addr.u.Byte[11]),Hb}:
+{(unsigned short)(sin6_addr.u.Byte[12] &lt;&lt; 8 | sin6_addr.u.Byte[13]),Hb}:
+{(unsigned short)(sin6_addr.u.Byte[14] &lt;&lt; 8 | sin6_addr.u.Byte[15]),Hb}]:{(unsigned short)((unsigned short)sin6_port &lt;&lt; 8 | (unsigned short)sin6_port)} 
+{sin6_scope_id}
+ </DisplayString>
+</Type>
+
+<Type Name="UTF8str255">
+ <DisplayString>Len {c[0]} {(char *)&amp;c[1],sb}</DisplayString>
+ <StringView>c,sb</StringView>
+</Type>
+  
+<Type Name="domainlabel">
+ <DisplayString>Len {c[0]} {(char *)&amp;c[1],sb}</DisplayString>
+<!--<DisplayString>{{size = {c[0]}}}</DisplayString>-->
+ <Expand>
+  <Item Name="[size]">c[0]</Item>
+  <ArrayItems>
+   <Size>c[0]</Size>
+   <ValuePointer>c[1]</ValuePointer>
+  </ArrayItems>
+ </Expand>
+</Type>
+  
+<Type Name="mDNSOpaque16">
+  <DisplayString>{(unsigned short)((unsigned short)b[0] &lt;&lt; 8 | (unsigned short)b[1])}</DisplayString>
+</Type>
+
+<Type Name="mDNSAddr">
+ <DisplayString Condition="type == 4">IPv4 {(int)ip.v4.b[0]}.{(int)ip.v4.b[1]}.{(int)ip.v4.b[2]}.{(int)ip.v4.b[3]}</DisplayString>
+ <DisplayString Condition="type == 6">IPv6 {(unsigned short)(ip.v6.b[0] &lt;&lt; 8 | ip.v6.b[1]),Hb}:
+{(unsigned short)(ip.v6.b[2] &lt;&lt; 8 | ip.v6.b[3]),Hb}:
+{(unsigned short)(ip.v6.b[4] &lt;&lt; 8 | ip.v6.b[5]),Hb}:
+{(unsigned short)(ip.v6.b[6] &lt;&lt; 8 | ip.v6.b[7]),Hb}:
+{(unsigned short)(ip.v6.b[8] &lt;&lt; 8 | ip.v6.b[9]),Hb}:
+{(unsigned short)(ip.v6.b[10] &lt;&lt; 8 | ip.v6.b[11]),Hb}:
+{(unsigned short)(ip.v6.b[12] &lt;&lt; 8 | ip.v6.b[13]),Hb}:
+{(unsigned short)(ip.v6.b[14] &lt;&lt; 8 | ip.v6.b[15]),Hb}
+ </DisplayString>
+ <DisplayString Condition="type == 0">EMPTY</DisplayString>
+ <DisplayString >INVALID</DisplayString>
+</Type>
+
+  
+<Type Name="mDNSOpaque32">
+ <DisplayString >IPv4 {(int)b[0]}.{(int)b[1]}.{(int)b[2]}.{(int)b[3]}</DisplayString>
+</Type>
+  
+<Type Name="mDNSOpaque128">
+ <DisplayString >IPv6 {b[0],Hb} {b[1],Hb} {b[2],Hb} {b[3],Hb} : {b[4],Hb} {b[5],Hb} {b[6],Hb} {b[7],Hb} : {b[8],Hb} {b[9],Hb} {b[10],Hb} {b[11],Hb} : {b[12],Hb} {b[13],Hb} {b[14],Hb} {b[15],Hb}</DisplayString>
+</Type>
+  
+<Type Name="mDNSOpaque48">
+ <DisplayString >{b[0],Hb}:{b[1],Hb}:{b[2],Hb}:{b[3],Hb}:{b[4],Hb}:{b[5],Hb}</DisplayString>
+</Type>
+
+<Type Name="v6addr_t">
+ <DisplayString>IPv6 {(int)v6addr_t[0]} {(int)v6addr_t[1]} {(int)v6addr_t[2]} {(int)v6addr_t[3]} : {(int)v6addr_t[4]} {(int)v6addr_t[5]} {(int)v6addr_t[6]} {(int)v6addr_t[7]} : {(int)v6addr_t[8]} {(int)v6addr_t[9]} {(int)v6addr_t[10]} {(int)v6addr_t[11]} : {(int)v6addr_t[12]} {(int)v6addr_t[13]} {(int)v6addr_t[14]} {(int)v6addr_t[15]}</DisplayString>
+</Type> 
+
+
+</AutoVisualizer>
